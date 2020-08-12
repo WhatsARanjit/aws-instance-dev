@@ -8,9 +8,10 @@ provider "aws" {
 }
 
 resource "aws_instance" "web" {
-  count         = var.size
-  ami           = var.ami_id
-  instance_type = "t2.micro"
+  count           = var.size
+  ami             = var.ami_id
+  instance_type   = "t2.micro"
+  security_groups = var.security_groups
 
   tags = {
     Name  = "Demo"
